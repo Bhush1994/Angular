@@ -1,0 +1,69 @@
+<form #myForm="ngForm" (ngSubmit)="getData(myForm.value)">
+
+<div class="row">
+    <div class="col-sm-6">
+        <label>Enter your full name</label>
+        <input type="text" name="fname" #fName="ngModel" class="form-control" pattern="[a-zA-Z]{3,30}" ngModel placeholder="Enter first name..." required>
+      <div *ngIf="fName.invalid && fName.touched" class="alert alert-danger">
+        <div *ngIf="fName.errors?.['required']">
+          This field is required
+        </div>
+        <div *ngIf="fName.errors?.['pattern']">
+          This required at least 3 letters
+        </div>
+        
+        </div>
+    </div>
+
+</div>
+<div class="col-sm-6">
+<label>Enter your last name</label>
+        <input type="text" name="lname" #lName="ngModel" class="form-control" pattern="[a-zA-Z]{3,30}" ngModel placeholder="Enter last name..." required>
+      <div *ngIf="lName.invalid && lName.touched" class="alert alert-danger">
+        <div *ngIf="lName.errors?.['required']">
+          This field is required
+        </div>
+        <div *ngIf="lName.errors?.['pattern']">
+          This required at least 3 letters
+        </div>
+
+      </div>
+    </div>
+    
+        <div class="col-sm-6">
+            <label>Select course</label>
+           <select name="course" #refcourse="ngModel" class="form-control" ngModel required>
+           <option value="">Select course</option>
+           <option [value]="c" *ngFor="let c of courses"> {{c}} </option>
+        </select>
+           <div *ngIf="refcourse.invalid && refcourse.touched" class="alert alert-danger">
+
+            <div *ngIf="refcourse.errors?.['required']">
+            course is required
+            </div>
+           </div>
+        
+           <div class="col-sm-7 mt-3">
+            <label>
+              <input type="checkbox" name="term" #refTerm="ngModel" ngModel required>
+              I accept all the terms and conditions
+            </label>
+            <div *ngIf="refTerm.invalid && refTerm.touched" class="alert alert-danger">
+              <div *ngIf="refTerm.errors?.['required']">
+                Please accept all the terms and conditions
+              </div>
+            </div>
+           </div>
+        
+           <div class="col-sm-7 mt-3">
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="myForm.invalid">Register</button>
+           </div>
+
+            <div> 
+           <!-- {{refName.className}}  -->
+          </div>
+          
+        </div>
+            
+    
+</form>

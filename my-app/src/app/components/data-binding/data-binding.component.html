@@ -1,0 +1,53 @@
+<p>data-binding works!</p>
+<hr>
+
+<h5>Interpolation binding</h5>
+<!-- Interpolation  ts => Html --> 
+<!-- in interpolation only textual data used. in this {} are used -->
+<p> Welcome {{userName}} </p>
+<p> Your age is {{age}} </p>
+
+<hr>
+
+<h5>property binding</h5>
+<!-- property binding ts => Html -->
+<!-- It is used to set a attributes value.in property binding [] are used -->
+
+<img [src]="imagePath" alt="nature" width="300px"> 
+<!-- above example used for property binding.in this src is property -->
+<br><hr>
+<img src="{{imagePath}}" alt="nature" width="300px">
+<!-- above example used for interpolation binding bcoz path url is textual data-->
+
+<br><br>
+<hr>
+<!-- interpolation vs property binding -->
+Property binding:<input type="text" [disabled]="disabledInput" [value]="name">
+<br><br>
+Interpolation:<input type="text" disabled="{{disabledInput}}" value="{{name}}">
+<br>
+<button class="btn btn-primary mt-3" (click)="enabledInput()">Enabled</button>
+
+<hr>
+<!-- Event binding -->
+<h5>Event binding</h5>
+<button class="btn btn-primary mt-3" (click)="clickMe()">Click Me</button>
+
+<!-- Two way binding -->
+<hr>
+<h5>Two way binding</h5>
+    <form>
+        <label for="">Enter a name</label>
+        <input type="text" name="name" [(ngModel)]="myName">{{myName}}
+    </form>
+<hr>
+    <!-- Reference variable -->
+    <h5>Reference variable </h5>
+    <!-- when in html to refer the other variable then use reference variable -->
+    <!-- with # use the name is on to us idea ex- #myname, #myMessage,   etc -->
+    <form>
+        <label>Enter a message</label>
+        <input type="text" name="myMessage" #myInputBox>
+         <br>
+        <button class="btn btn-primary mt-3" (click)="showMsg(myInputBox.value)">Show message</button>
+    </form>

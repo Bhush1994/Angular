@@ -1,0 +1,19 @@
+<p>parent works!</p>
+
+<strong>{{ childData }}</strong>
+
+<div class="container">
+<div class="card">
+    <div class="card-header">Parent Component</div>
+    
+    <div class="card-body">
+      <form>
+        <label for="">Send message from parent</label>
+        <input type="text" id="p1" class="m-2" #pMsg>
+        <button class="btn btn-primary btn-sm" (click)="getMessage(pMsg.value)">Send</button>
+      </form>
+    </div>
+  </div>    
+</div>
+
+<app-child (emitterobj)="childData=$event" [pData]="data"></app-child>

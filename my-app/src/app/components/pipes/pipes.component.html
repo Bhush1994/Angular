@@ -1,0 +1,44 @@
+
+<h5>{{Message | uppercase}}</h5>
+<h5>{{Message | lowercase}}</h5>
+<h5>{{Message | slice : 13:18 | uppercase}}</h5>
+
+<h5>{{Message}}</h5>
+<h5>{{today}}</h5>
+<h5>{{today | date}}</h5>
+<h5>{{today | date:'fullDate'}}</h5>
+
+<h3>{{capString(Message)}}</h3>
+
+<h3>{{emp}}</h3>
+
+<h3>{{emp | json|uppercase}}</h3>
+
+<h2>{{2000.3000 | number : '2.2-3'}}</h2>
+
+<h2>{{20 | currency:'USD'}}</h2>
+<h2>{{20 | currency:'INR'}}</h2>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Contact</th>
+        </tr>
+    </thead>
+
+
+<tbody>
+    <tr *ngFor="let s of students">
+        <td (click)="setParam(s.roll)">{{s.roll}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.gender}}</td>
+        <td>{{s.address}}</td>
+        <td>{{s.contact}}</td>
+         </tr>
+</tbody>
+</table>

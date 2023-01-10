@@ -1,0 +1,35 @@
+<p>task1 works!</p>
+<hr>
+<button class="btn btn-primary" (click)="showCars()">Cars</button>
+&nbsp;
+<button class="btn btn-primary" (click)="showBikes()">Bikes</button>
+<br>
+
+<div *ngIf="isCar; then carsShow else bikesShow"></div>
+
+<ng-template #carsShow>
+<div>
+    <ul *ngFor="let car of cars">
+  <li (click)="itemclicked(car)"> {{car}}</li>
+    </ul>
+</div>
+</ng-template>
+
+<ng-template #bikesShow>
+<div>
+    <ul *ngFor="let bike of bikes">
+  <li (click)="itemclicked(bike)">{{bike}}</li>
+    </ul>
+</div>
+</ng-template>
+
+<hr>
+<div [ngSwitch]="selection">
+    <div *ngFor="let car of cars">
+<div *ngSwitchCase="car">You have selected {{car}} car.</div>
+    </div>
+
+    <div *ngFor="let bike of bikes">
+        <div *ngSwitchCase="bike">You have selected {{bike}} bike.</div>
+            </div>
+</div>

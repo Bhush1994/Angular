@@ -1,0 +1,32 @@
+<p>task2 works!</p>
+<button class="btn btn-primary" (click)="showState()">State</button>
+&nbsp;
+<button class="btn btn-primary"(click)="showCity()">City</button>
+<hr>
+<div *ngIf="isstates; then stateShow else cityShow"></div>
+
+<ng-template #stateShow>
+    <div>
+        <ul *ngFor="let state of states">
+            <li (click)="itemclicked(state)"> {{state}} </li>
+        </ul>
+    </div>
+</ng-template>
+
+<ng-template #cityShow>
+    <div>
+        <ul *ngFor="let city of city">
+            <li (click)="itemclicked(city)"> {{city}} </li>
+        </ul>
+    </div>
+</ng-template>
+<hr>
+<div [ngSwitch]="selection">
+<div *ngFor="let state of states">
+    <div *ngSwitchCase="state">You have selected {{state}} state.</div>
+</div>
+
+<div *ngFor="let city of city">
+    <div *ngSwitchCase="city">You have selected {{city}} city.</div>
+</div>
+</div>

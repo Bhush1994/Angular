@@ -1,0 +1,18 @@
+.txtDanger{
+    color:red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: black;
+}
+
+.txtSuccess {
+    color:greenyellow;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+}
+
+.super:hover {
+    color:tomato;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    background-color: cornsilk;
+}

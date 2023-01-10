@@ -1,0 +1,57 @@
+<form [formGroup]="empData" (ngSubmit)="getData(empData.value)">
+
+  <div class="row">
+
+    <div class="col-sm-6">
+      <label for="">Enter first name</label>
+      <input type="text" name="fname" formControlName="fname" class="form-control" placeholder="Enter first name">
+      <div class="alert alert-danger" *ngIf="empData.get('fname').invalid && empData.get('fname').touched">
+        <div *ngIf="empData.get('fname').errors?.required">This field is required</div>
+        <div *ngIf="empData.get('fname').errors?.pattern">Name requires at least 3 letters</div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="">Enter last name</label>
+      <input type="text" name="lname" formControlName="lname" class="form-control" placeholder="Enter last name">
+      <div class="alert alert-danger" *ngIf="empData.get('lname').invalid && empData.get('lname').touched">
+        <div *ngIf="empData.get('lname').errors?.required">This field is required</div>
+        <div *ngIf="empData.get('lname').errors?.pattern">Name requires at least 3 letters</div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="">Select your course</label>
+      <select name="course" formControlName="courses" class="form-control">
+        <option value="">Select course</option>
+        <option [value]="c" *ngFor="let c of courses">{{c}}</option>
+     </select>
+     <div class="alert alert-danger" *ngIf="empData.get('courses').invalid && empData.get('courses').touched" >
+
+      <div *ngIf="empData.get('courses').errors?.['required']">
+      course selection is mandatory</div>
+      </div>
+    </div>
+
+<div class="col-sm-7 mt-3">
+  <label>
+    <input type="checkbox" name="term" formControlName="term" >
+    I accept all the terms and conditions
+  </label>
+    <div class="alert alert-danger" *ngIf="empData.get('term').invalid && empData.get('term').touched">
+
+      <div *ngIf="empData.get('term').errors?.['required']">Please accept all the terms and conditions</div>
+    </div>
+    <div class="col-sm-6 mt-3">
+    <button type="submit" class="btn btn-primary btn-sm" [disabled]="empData.invalid">Register</button>
+  </div>
+  
+</div>
+
+    </div>
+
+  
+
+</form>

@@ -1,0 +1,45 @@
+<p>directives works!</p> 
+
+<h3 *ngIf="flag"> Output of *ngIf</h3>
+
+<ng-template #one>
+    1. ng-template is given by Angular
+</ng-template>
+
+<p *ngIf="myVal; then one; else two"></p>
+<ng-template #two>
+    2. ng-template is given by Angular
+</ng-template>
+<hr>
+
+<strong> Demo for *ngFor</strong>
+
+<div *ngFor="let fruit of fruits">
+    {{fruit}} 
+</div>
+
+<ul *ngFor="let fruit of fruits">
+    <li> {{fruit}} </li> 
+</ul>
+
+<hr>
+
+<strong> Demo for *ngSwitch</strong>
+
+<div [ngSwitch]="myChoice">
+<div *ngSwitchCase="'Apple'">Apple selected</div>
+<div *ngSwitchCase="'Banana'">Banana selected</div>
+<div *ngSwitchCase="'Mango'">Mango selected</div>
+<div *ngSwitchCase="'Graps'" >Graps selected</div>
+<div *ngSwitchCase="'Orange'">Orange selected</div>
+<div *ngSwitchDefault>No fruits selected</div>
+</div>
+
+<div [ngSwitch] = "myChoice">
+    <div *ngFor="let fruit of fruits">
+        <div *ngSwitchCase="fruit">You have selected {{fruit}} </div>
+    </div>
+    <div *ngSwitchDefault>No selection done</div>
+</div>
+
+
